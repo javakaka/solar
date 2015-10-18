@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>寻宝</title>
+  <meta name="description" content="寻宝" />
+  <meta name="keywords" content="寻宝" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="apple-mobile-web-app-capable" content="寻宝">
+  <meta name="apple-mobile-web-app-title" content="寻宝" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" /> 
+  <link rel="Stylesheet" href="common/css/main.css" />
+ </head>
+ <body >
+  <div id="main" class="wrapper white">
+  	<input id="selected_category_id" name="selected_category_id" value="" type="hidden" />
+  	<input id="selected_state_id" name="selected_state_id" value="" type="hidden" />
+	  <div class="search-title">
+	  	<div class="search-label">类目:</div>
+	  </div>
+	  <div class="category-list gray">
+	  	<div class="category-list-item">
+	  		<div class="left selected" name="category_item" data-num="-1">全部</div>
+	  		<div class="center" name="category_item" data-num="1">翡翠</div>
+	  		<div class="right" name="category_item" data-num="2">玛瑙</div>
+	  	</div>
+	  	<div class="category-list-item">
+	  		<div class="left" name="category_item" data-num="3">琥珀</div>
+	  		<div class="center" name="category_item" data-num="4">水晶</div>
+	  		<div class="right" name="category_item" data-num="5">玉石</div>
+	  	</div>
+	  	<div class="category-list-item">
+	  		<div class="left" name="category_item" data-num="6">有色宝石</div>
+	  		<div class="center" name="category_item" data-num="7">石榴石</div>
+	  		<div class="right" name="category_item" data-num="8">碧玺</div>
+	  	</div>
+	  </div>
+	  <div class="search-state">
+	  	<div class="search-label">状态:</div>
+	  </div>
+	  <div class="search-state-list gray">
+	  	<div class="left selected" name="state_item" data-num="1">即将开始</div>
+	  	<div class="center" name="state_item" data-num="2">正在进行</div>
+	  	<div class="right" name="state_item" data-num="3">已结束</div>
+	  </div>
+	  <div class="search-price-content">
+	  	<div class="search-label left">价格:</div>
+	  	<input id="start_price_inp" name="start_price_inp" value="" type="text" class="inputbox left"/>
+	  	<div class="search-price-content-label left">元～</div>
+	  	<input id="end_price_inp" name="end_price_inp" value="" type="text" class="inputbox left"/>
+	  	<div class="search-price-content-label left">元</div>
+	  </div>
+	  <a href="index-search-result.htm">
+	  <div class="search-submit-btn" >
+	  	确定
+	  </div>
+	  </a>
+	  <div id="footer_bottom">
+	    <!-- S 底部固定菜单 -->
+	    <div class="flight-footer" style="z-index:100000;">
+	        <ul>
+	            <li id="flightSearch" class="ft1" onclick="location.href = 'index.htm'">进入会场</li>
+	            <li id="flightHelper" class="ft2 current" onclick="location.href = 'index-hot.htm'">热拍单品</li>
+	            <li id="flightSchedule" class="ft3" onclick="location.href = 'index-user-home.htm'">我的</li>
+	        </ul>
+	    </div>
+	    <!-- E 底部固定菜单 -->
+		</div>
+  </div>
+  <script type="text/javascript" src="common/js/jquery.min.js"></script>
+ </body>
+ <script>
+ 	$(function(){
+ 		$("[name='category_item']").click(function(obj){
+ 				$obj =$(this);
+ 				var selected_num =$obj.attr("data-num")
+ 				$("#selected_category_id").val(selected_num);
+ 				$("[name='category_item']").removeClass("selected");
+ 				$obj.addClass("selected");
+ 			});
+ 			
+ 		$("[name='state_item']").click(function(obj){
+ 				$obj =$(this);
+ 				var selected_num =$obj.attr("data-num")
+ 				$("#selected_state_id").val(selected_num);
+ 				$("[name='state_item']").removeClass("selected");
+ 				$obj.addClass("selected");
+ 			});
+ 	});
+ </script>
+</html>

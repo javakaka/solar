@@ -1,0 +1,267 @@
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #6633cc; TEXT-DECORATION: underline
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #f6f6f6; FONT-SIZE: 10pt; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cccccc; COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: #cccccc; SCROLLBAR-ARROW-COLOR: #330000; SCROLLBAR-TRACK-COLOR: #ffffff; FONT-FAMILY: "Arial"; SCROLLBAR-DARKSHADOW-COLOR: #ffffff
+}
+SELECT {
+	FONT-FAMILY: "Arial"
+}
+BODY.popup {
+	BACKGROUND-COLOR: #d4e7f1; leftmargin: 4pt; topmargin: 4pt
+}
+BODY.fmainlist {
+	PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; PADDING-BOTTOM: 2pt; MARGIN: 0pt; PADDING-TOP: 2pt
+}
+BODY.funcmenu {
+	PADDING-RIGHT: 0pt; PADDING-LEFT: 4pt; FONT-SIZE: 10pt; PADDING-BOTTOM: 0pt; MARGIN: 0px; PADDING-TOP: 0pt
+}
+BODY.nodetree {
+	PADDING-RIGHT: 0pt; PADDING-LEFT: 4pt; PADDING-BOTTOM: 0pt; MARGIN: 0px; PADDING-TOP: 0pt
+}
+H1 {
+	FONT-SIZE: 18pt; COLOR: black; FONT-FAMILY: Arial
+}
+TABLE.pop {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #000000 1px solid; WIDTH: 100%; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "Arial"; cellspacing: 2; cellpadding: 2; borderColorDark: #CCCCCC; borderColorLight: #000000
+}
+TABLE.placeholder {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 100%; BORDER-BOTTOM: #999999 1px solid; HEIGHT: 100%
+}
+TR.row1 {
+	BACKGROUND-COLOR: #ffffff
+}
+TR.row2 {
+	BACKGROUND-COLOR: #eff3ff
+}
+TABLE.list {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #666666 1px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; empty-cells: show
+}
+TD.firstline {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+TD.item {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"
+}
+TD.menutd {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial
+}
+TD.leftcol {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #999999 1px solid; WIDTH: 20%; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: right
+}
+TD.rightcol {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"
+}
+TD.mselecttd {
+	BORDER-RIGHT: #66aa66 1px solid; BORDER-TOP: #66aa66 1px solid; FONT-SIZE: 10pt; VERTICAL-ALIGN: middle; BORDER-LEFT: #66aa66 1px solid; BORDER-BOTTOM: #66aa66 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #e1fbfa; TEXT-ALIGN: center
+}
+TABLE.normal {
+	BORDER-RIGHT: #66aa66 1px solid; BORDER-TOP: #66aa66 1px solid; BORDER-LEFT: #66aa66 1px solid; WIDTH: 90%; COLOR: #000080; BORDER-BOTTOM: #66aa66 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; cellspacing: 2; empty-cells: show
+}
+TABLE.popup {
+	BORDER-RIGHT: #66aa66 1px solid; BORDER-TOP: #66aa66 1px solid; BORDER-LEFT: #66aa66 1px solid; WIDTH: 90%; COLOR: #000080; BORDER-BOTTOM: #66aa66 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; cellspacing: 2; empty-cells: show; align: center
+}
+TABLE.menu {
+	WIDTH: 90%; COLOR: #000080; FONT-FAMILY: "Arial"; cellspacing: 2; borderColorDark: #ffffff; borderColorLight: #c0c0c0; empty-cells: show
+}
+TABLE.tfunc {
+	BORDER-RIGHT: 1px; BORDER-TOP: 1px; BORDER-LEFT: 1px; WIDTH: 90%; COLOR: #000080; BORDER-BOTTOM: 1px; FONT-FAMILY: "Arial"; cellspacing: 2; borderColorDark: #ffffff; borderColorLight: #c0c0c0
+}
+TABLE.bfunc {
+	BORDER-RIGHT: 1px; BORDER-TOP: 1px; BORDER-LEFT: 1px; WIDTH: 90%; COLOR: #000080; BORDER-BOTTOM: 1px; FONT-FAMILY: "Arial"; cellspacing: 2; borderColorDark: #ffffff; borderColorLight: #c0c0c0
+}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.button {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 12px; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; CURSOR: hand; BORDER-TOP-COLOR: #000000; HEIGHT: 25px; BACKGROUND-COLOR: #e8f1fc; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+.button_gray {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 12px; BORDER-LEFT-COLOR: #999999; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #999999; WIDTH: 62px; BORDER-TOP-COLOR: #999999; HEIGHT: 19px; BACKGROUND-COLOR: #d4d0c8; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #999999
+}
+.input_text {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #999999 1px solid; COLOR: #000000; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial","ËÎÌå", "ºÚÌå", "·ÂËÎ_GB2312"; BACKGROUND-COLOR: #ffffff
+}
+.input_textarea {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #999999 1px solid; COLOR: #000000; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial","ËÎÌå", "ºÚÌå", "·ÂËÎ_GB2312"; BACKGROUND-COLOR: #ffffff
+}
+.input_selected {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #000000 1px solid; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "Arial", "ËÎÌå", "ºÚÌå", "·ÂËÎ_GB2312"; BACKGROUND-COLOR: #ffffff
+}
+.multiselect {
+	WIDTH: 150px; HEIGHT: 280px
+}
+.levelselect {
+	WIDTH: 50px
+}
+.privitem {
+	LEFT: 30px; POSITION: relative
+}
+.displayselect {
+	DISPLAY: block
+}
+.hiddenselect {
+	DISPLAY: none
+}
+.vhiddenselect {
+	VISIBILITY: hidden
+}
+.vdisplayselect {
+	
+}
+.multipagelink {
+	FONT-SIZE: 9pt; WIDTH: 100%; COLOR: #333333; FONT-FAMILY: Arial,Verdana,Geneva,Helvetica
+}
+.helpdiv {
+	BORDER-RIGHT: #908860 1px outset; BORDER-TOP: #908860 1px outset; Z-INDEX: 600; RIGHT: 10px; VISIBILITY: hidden; OVERFLOW: hidden; BORDER-LEFT: #908860 1px outset; WIDTH: 300px; BORDER-BOTTOM: #908860 1px outset; POSITION: absolute; HEIGHT: 370px; BACKGROUND-COLOR: #c0c0a8
+}
+.helpmovebar {
+	FONT-SIZE: 10pt; LEFT: 10px; WIDTH: 280px; CURSOR: move; POSITION: absolute; HEIGHT: 15px; TEXT-ALIGN: center
+}
+.helpmenubar {
+	BORDER-RIGHT: #908860 1px inset; BORDER-TOP: #908860 1px inset; LEFT: 4px; OVERFLOW: hidden; BORDER-LEFT: #908860 1px inset; WIDTH: 288px; BORDER-BOTTOM: #908860 1px inset; POSITION: absolute; TOP: 20px; HEIGHT: 20px; BACKGROUND-COLOR: #e0e0d0
+}
+.miniframe {
+	BORDER-RIGHT: #908860 1px inset; PADDING-RIGHT: 6px; BORDER-TOP: #908860 1px inset; PADDING-LEFT: 6px; FONT-SIZE: 9pt; Z-INDEX: 500; LEFT: 4px; VISIBILITY: inherit; PADDING-BOTTOM: 6px; BORDER-LEFT: #908860 1px inset; WIDTH: 280px; PADDING-TOP: 6px; BORDER-BOTTOM: #908860 1px inset; FONT-FAMILY: Arial,Verdana,Geneva,Helvetica; POSITION: relative; TOP: 20px; HEIGHT: 340px; BACKGROUND-COLOR: #e0e0d0
+}
+.tabselect {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: verdana
+}
+.tabenable {
+	FONT-SIZE: 14px; COLOR: #dddddd; FONT-FAMILY: verdana
+}
+.tabunable {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: verdana
+}
+DIV.subtoc {
+	BORDER-RIGHT: black thin solid; BORDER-TOP: black thin solid; Z-INDEX: 2; BACKGROUND: #e1fbfa; MARGIN: 1em; BORDER-LEFT: black thin solid; BORDER-BOTTOM: black thin solid
+}
+SPAN.modlabel {
+	FONT-SIZE: 12pt; FONT-FAMILY: "ËÎÌå"
+}
+TABLE.infotable {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #999999 1px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; cellspacing: 2; cellpadding: 2; empty-cells: show
+}
+TD.infotitleitem {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #dedfdf; TEXT-ALIGN: left
+}
+TD.infoleftitem {
+	FONT-SIZE: 9pt; WORD-BREAK: break-all; FONT-FAMILY: "Arial"; TEXT-ALIGN: right
+}
+TD.inforightitem {
+	FONT-SIZE: 9pt; WORD-BREAK: break-all; FONT-FAMILY: "Arial"; TEXT-ALIGN: left
+}
+TD.infoleftitem_big {
+	FONT-SIZE: 9pt; VERTICAL-ALIGN: top; PADDING-TOP: 4px; FONT-FAMILY: "Arial"; TEXT-ALIGN: right
+}
+TD.inforightitem_big {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial"; TEXT-ALIGN: left
+}
+TD.infotopitem {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left; text-height: bold
+}
+TABLE.subinfotable {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; cellspacing: 2; cellpadding: 2; empty-cells: show
+}
+TD.subinfotopitem {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #dedfdf; TEXT-ALIGN: center
+}
+TD.subinfoitem {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: center
+}
+P.tabmenu {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #ffffff; TEXT-INDENT: 8px
+}
+.funcmenu {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #000000; TEXT-INDENT: 8px
+}
+TABLE.oprtable {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #999999 1px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; cellspacing: 2; cellpadding: 6; empty-cells: show
+}
+TD.oprleftitem {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+TD.oprrightitem {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #ffffff
+}
+TD.oprbtnitem {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "Arial"; BACKGROUND-COLOR: #dedfdf; TEXT-ALIGN: right
+}
+TD.nodehandle_inputleft {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #99bbff
+}
+TD.nodehandle_inputright {
+	BORDER-TOP-WIDTH: 1px; BORDER-RIGHT: #0066ff 1px solid; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #0066ff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #0066ff; BORDER-TOP-COLOR: #0066ff
+}
+TD.nodehandle_spacetoken {
+	FONT-SIZE: 9pt
+}
+.tooltiptitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; CURSOR: default; COLOR: #ffffff; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.tooltipcontent {
+	FONT-SIZE: 8pt; CURSOR: default; COLOR: #000000; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+#ToolTip {
+	Z-INDEX: 4; LEFT: 0px; VISIBILITY: hidden; WIDTH: 100px; POSITION: absolute; TOP: 0px
+}
+P.taboff {
+	FONT-SIZE: 8pt; COLOR: #000000; TEXT-DECORATION: none
+}
+P.tabon {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #000000; TEXT-DECORATION: none
+}
+TABLE.curvtr {
+	FONT-SIZE: 11pt
+}
+TD.curvtd {
+	BORDER-RIGHT: #154eac 1px solid; PADDING-RIGHT: 2pt; BORDER-TOP: medium none; PADDING-LEFT: 2pt; PADDING-BOTTOM: 2pt; BORDER-LEFT: #154eac 1px solid; PADDING-TOP: 2pt; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #ffffff
+}
+TD.newcurvtd {
+	BORDER-TOP: medium none; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #ffffff
+}
+TD.curvfootertd {
+	BORDER-RIGHT: #154eac 1px solid; BORDER-TOP: medium none; FONT-SIZE: 9pt; BORDER-LEFT: #154eac 1px solid; BORDER-BOTTOM: #154eac 1px solid; HEIGHT: 8px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+TD.newcurvfootertd {
+	FONT-SIZE: 9pt; HEIGHT: 8px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: right
+}
+IFRAME.searchIFrame {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid
+}
+BODY.searchIFrame {
+	PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; BACKGROUND: #ffffff; MARGIN: 2pt; PADDING-TOP: 2pt
+}
+TD.graytitle {
+	BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: bottom; TEXT-ALIGN: center
+}
+TD.quickbar {
+	FONT-SIZE: 8pt; VERTICAL-ALIGN: bottom
+}
+TD.printtitle {
+	FONT-SIZE: 14pt; FONT-FAMILY: "Arial","ºÚÌå"
+}
+TD.printdescribe {
+	FONT-SIZE: 10pt; FONT-FAMILY: "Arial"
+}
+TD.printcontent {
+	FONT-SIZE: 10pt
+}
+TABLE.prttable {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #000000 1px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "Arial"; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; empty-cells: show
+}
+TD.prtitem {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "Arial"; TEXT-ALIGN: center
+}
+TD.prtleftitem {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: top; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "Arial"; TEXT-ALIGN: right
+}
+TD.prtrightitem {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: top; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "Arial"; TEXT-ALIGN: left
+}

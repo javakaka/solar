@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Drag n Drop Modules Demo by Niko @2006-12-28</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+  <meta http-equiv="Content-Language" content="zh-CN" />
+  <meta http-equiv="imagetoolbar" content="no" />
+  <meta name="author" content="Niko" />
+  <meta name="keywords" content="Drag n Drop">
+  <meta name="description" content="Drag n Drop Modules">
+  <link rel="stylesheet" type="text/css" href="res/css/demo_globe.css" />
+  <link rel="stylesheet" type="text/css" href="res/css/demo_default.css" id="demo_theme" />
+  <script type="text/javascript" src="res/jsvm2/jsre.js" classpath="res/js/demo_lib_110.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+      _import("com.bluepower.ui.DemoPage");
+	  /**
+	   * 默认模块队列，形如 A1,A2,A3|B1,B2,B3|...
+	   * 本例最多支持四个分栏 AAA|BBB|CCC|DDD
+	   */
+	  var sDefault = "profile,news,forum|photo,weather,favorite|video,blog,music";
+	  var dp = new DemoPage();
+	  var sCookie = dp.getCookie("modules");
+
+	  if(!sCookie || sCookie == ''){
+	      sCookie = sDefault;
+	      dp.setCookie("modules", sDefault);
+	  }
+
+	  window.onload = function(){
+	      dp.init(sCookie);
+	  }
+  //]]>
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <ul class="noScript">
+	  <li>您需要启用JavaScript！</li>
+	  <li>请勿禁用Cookie！</li>
+	</ul>
+  </noscript>
+
+  <!-- START Navigation Bar -->
+  <div id="nav_area" class="cB navBar">
+    <span class="fR">
+	  [&nbsp;<a href="javascript:dp.swapDisplay('set_module_area')" title="添加删除模块">增删模块</a>&nbsp;] 
+	  <a href="javascript:dp.setColumn(1)" title="1栏:::Column1">1栏</a> 
+	  <a href="javascript:dp.setColumn(2)" title="2栏:::Column2">2栏</a> 
+	  <a href="javascript:dp.setColumn(3)" title="3栏:::Column3">3栏</a> 
+	  <a href="javascript:dp.setColumn(4)" title="4栏:::Column4">4栏</a> 
+	  <a href="javascript:dp.setTheme('default')" title="主题1:::Theme1">主题1</a> 
+	  <a href="javascript:dp.setTheme('blue')" title="主题2:::Theme2">主题2</a>
+	  <a href="javascript:dp.setTheme('xmas')" title="主题3:::Theme3">主题3</a>
+	</span>
+  </div>
+  <!-- END Navigation Bar -->
+
+  <!-- START Notice Bar -->
+  <div id="notice_area" class="cB noticeBar" style="display: none">
+    <table class="cB fC">
+	 <tr>
+	   <td>通过拖动、关闭来对您的Portal首页进行自定义。简单拖放就可以重新排列模块，若要应用更改、请单击&quot;<strong>保存</strong>&quot;按钮。</td>
+	   <td><input type="button" value="&nbsp;&nbsp;保&nbsp;存&nbsp;&nbsp;" onclick="dp.saveSetting()" /></td>
+	   <td>&nbsp;</td>
+	   <td><input type="button" value="&nbsp;&nbsp;取&nbsp;消&nbsp;&nbsp;" onclick="dp.hideEl('notice_area')" /></td>
+	 </tr>
+	</table>
+  </div>
+  <!-- END Notice Bar -->
+
+  <!-- START Set Module Area -->
+  <div id="set_module_area" class="cB setModuleArea" style="display: none">
+    <table cellspacing="6" class="cB fC bcS">
+	 <tr>
+	   <td colspan="4" class="f1">备注：本例中默认模块不可删除，新增的模块会直接加到最后一列...</td>
+	 </tr>
+	 <tr>
+	   <td>
+	     <input type="checkbox" id="module_profile" value="profile" />&nbsp;
+		 <label for="module_profile">简介(Profile)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_news" value="news" />&nbsp;
+		 <label for="module_news">新闻(News)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_forum" value="forum" />&nbsp;
+		 <label for="module_forum">论坛(Forum)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_photo" value="photo" />&nbsp;
+		 <label for="module_photo">照片(Photo)</label>
+	   </td>
+	 </tr>
+	 <tr>
+	   <td>
+	     <input type="checkbox" id="module_weather" value="weather" />&nbsp;
+		 <label for="module_weather">天气(Weather)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_favorite" value="favorite" />&nbsp;
+		 <label for="module_favorite">收藏(Favorite)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_video" value="video" />&nbsp;
+		 <label for="module_video">视频(Video)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_blog" value="blog" />&nbsp;
+		 <label for="module_blog">博客(Blog)</label>
+	   </td>
+	 </tr>
+	 <tr>
+	   <td>
+	     <input type="checkbox" id="module_music" value="music" />&nbsp;
+		 <label for="module_music">音乐(Music)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_note" value="note" />&nbsp;
+		 <label for="module_note">便笺(Note)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_sport" value="sport" />&nbsp;
+		 <label for="module_sport">体育(Sport)</label>
+	   </td>
+	   <td>
+	     <input type="checkbox" id="module_game" value="game" />&nbsp;
+		 <label for="module_game">游戏(Game)</label>
+	   </td>
+	 </tr>
+	</table>
+	<table class="cB fC">
+	 <tr>
+	   <td><input type="button" value="&nbsp;&nbsp;确&nbsp;定&nbsp;&nbsp;" onclick="dp.setModule()" /></td>
+	   <td>&nbsp;</td>
+	   <td><input type="button" value="&nbsp;&nbsp;取&nbsp;消&nbsp;&nbsp;" onclick="dp.hideEl('set_module_area')" /></td>
+	 </tr>
+	</table>
+  </div>
+  <!-- END Set Module Area -->
+
+</body>
+</html>

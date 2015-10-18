@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TabPanel demo</title>
+<style>
+html, body {
+	width : 100%;
+	height : 100%;
+	padding : 0;
+	margin : 0;
+	overflow : hidden;
+}
+
+
+</style>
+<link href="css/core.css" rel="stylesheet" type="text/css"/>
+<link href="css/TabPanel.css" rel="stylesheet" type="text/css"/>
+<link href="css/Toolbar.css" rel="stylesheet" type="text/css"/>
+<link href="css/WindowPanel.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/Fader.js"></script>
+<script type="text/javascript" src="js/TabPanel.js"></script>
+<script type="text/javascript" src="js/Math.uuid.js"></script>
+<script type="text/javascript" src="js/Toolbar.js"></script>
+<script type="text/javascript" src="js/WindowPanel.js"></script>
+<script type="text/javascript" src="js/Drag.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+/////////////////////////////////////////////////////////////////
+var tabpanel;
+var toolbar;
+$(document).ready(function(){
+
+	toolbar = new Toolbar({
+        renderTo : 'toolbar',
+		//border: 'top',
+        items : [{
+          type : 'button',
+          text : 'OpenWindow',
+          bodyStyle : 'new',
+          useable : 'T',
+          handler : function(){
+			new WindowPanel({
+				id : 'saveDictionary',
+				title : '添加字典',
+				width : 400,
+				height : 175,
+				dragable : true,
+				html : '<iframe src="http://www.google.cn" frameborder="0" scrolling="auto"></iframe>'
+			});
+          }
+        },'-',{
+          type : 'button',
+          text : '改变宽度',
+          bodyStyle : 'linked',
+          useable : 'T',
+		  handler : function(){
+            tabpanel.setRenderWH({height:800, width:1000});
+          }
+        },'-',{
+          type : 'button',
+          text : 'Click Add!!',
+          bodyStyle : 'delete',
+          useable : 'T',
+          handler : function(){
+            addadd();
+          }
+        }]
+      });
+
+	  toolbar.render();
+
+	  tabpanel = new TabPanel({
+		renderTo:'tab',
+		autoResizable:true,
+		border:'none',
+		active : 0,
+		maxLength : 10,
+		items : [{
+			id:'toolbarPlugin',
+			title:'我是一个很长很长的选项卡',
+			icon:'image/read-n.gif',
+			html:'<iframe id="callIframe" src="" width="100%" height="100%" frameborder="0"></iframe>',
+			closable: false
+		}]
+	});
+});
+var i=0;
+function addadd(){
+  tabpanel.addTab({title:'我是一个很长很长的选项卡'+(++i), html:'<iframe src="http://www.baidu.com" width="100%" height="100%" frameborder="0"></iframe>'})
+}
+</script>
+<div id="toolbar" style="width:100%;"></div>
+<div id="tab" style="width:400px;"></div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<%@ page contentType="text/html; charset=GBK"%>
+<%@ include file="/include/Head.jsp"%>
+<%
+String sStaffNo =((SessionOBJ)session.getAttribute("user")).getSessionKey("staff-no").toString();
+%>
+<zz:Run service="getWaitDeploy" dynamic="false"/>
+<zz:Error dtype="1"/>
+<body topmargin=0 leftmargin=0 style="BACKGROUND: url(<%=GlobalNames.WEB_PATH%>/images/daibangongzuo.jpg) fixed no-repeat" >
+<%
+String sDeployId =request.getParameter("deploy_id");
+ArrayList alAllIssue =new ArrayList();
+if(request.getAttribute(GlobalNames.BEGING_TAG+"WAITDEPLOY") !=null)
+{
+	ArrayList al =(ArrayList)request.getAttribute(GlobalNames.BEGING_TAG+"WAITDEPLOY");
+	for(int i=0;i<al.size();i++)
+	{
+			HashMap hm=(HashMap)al.get(i);		
+			String sDeployName=(String)hm.get("DEPLOY_NAME");
+			String sDeployID=(String)hm.get("DEPLOY_ID");
+		%>
+      <zz:Run service="getIssue" dynamic="false" pagesize="4">
+         <zz:Arg name="deploy_id" value="<%=sDeployID%>"/>
+			<zz:Arg name="staff_no" value="<%=sStaffNo%>"/>
+      </zz:Run>
+		<zz:Error dtype="1"/>
+		<%
+		if(request.getAttribute(GlobalNames.BEGING_TAG+"WAITISSUE") !=null)
+		{
+			ArrayList alTmp =(ArrayList)request.getAttribute(GlobalNames.BEGING_TAG+"WAITISSUE");
+			if(alTmp !=null)
+				for(int j=0; j<alTmp.size(); j++)
+				{
+					HashMap tmp =(HashMap)alTmp.get(j);
+					tmp.put("DEPLOY_ID",sDeployID);
+					tmp.put("DEPLOY_NAME", sDeployName);
+					alAllIssue.add(tmp);
+				}
+		}
+
+		}
+%>
+	<table id="tabMain" name="tabMain" border=0 cellpadding=0 cellspacing=0 width=100%>	
+		<tr>
+			<td><table width=100%><tr><td width=55 nowrap><font color=red>□</font>签收:</td><td>
+				<MARQUEE scrollAmount=1 scrollDelay=45 align="middle">
+				<zz:Run service="getSignPreparedThing" dynamic="false"/>
+				<zz:Error dtype="1"/>
+				<zz:Result var="sign" name="SIGN_THINGS">
+					<a onClick="onSign('<zz:Field item="sign.WF_NO"/>','<zz:Field item="sign.CARD"/>','<zz:Field item="sign.FPU_NO"/>')" style="cursor:hand"><zz:Field item="sign.WF_NAME"/>[<zz:Field item="sign.ACTION_NAME"/>]</a>
+				</zz:Result>
+				</MARQUEE></td></tr></table>
+			</td>
+		</tr>
+		<tr>
+			<td height=1 bgcolor="#C6EBFF"></td>
+		</tr>
+		<tr>
+			<td align=left><table border=0 cellpadding=0 cellspacing=0 width=100%><tr><td>
+			<%if(sDeployId !=null)
+			{%>
+				<a href="issue.jsp">所有待办事项</a>
+			<%}%></td><td align=left><%="共有待办[<font color=\"red\"><b>"+alAllIssue.size()+"</font></b>]件待办事项"%>	
+</td></tr></table>
+			</td>
+		</tr>
+		<tr>
+			<td height=1 bgcolor="#C6EBFF"></td>
+		</tr>
+		<tr>
+			<td>
+		<DIV onscroll="setRowFixed()" style="OVERFLOW: auto; WIDTH: 100%; HEIGHT: 100%"> 
+		<table id="tabMain" name="tabMain" cellpadding="1" border="0" width="100%">	
+		<%for(int k=0; k<alAllIssue.size(); k++)
+		{
+			HashMap hmTmp =(HashMap)alAllIssue.get(k);
+			String sUrl = hmTmp.get("URL")==null?"":hmTmp.get("URL").toString();
+			if(sUrl.length() !=0)
+			{
+				if(sUrl.toUpperCase().indexOf("HTTP://") ==-1)
+				{
+					if(sUrl.indexOf("///") ==-1)
+						sUrl =GlobalNames.WEB_PATH+sUrl;
+					else
+						sUrl =sUrl.substring(2);
+				}
+			}
+			%>
+			<tr>
+				<td>
+				[<a href='issue.jsp?deploy_id=<%=hmTmp.get("DEPLOY_ID")%>'><%=hmTmp.get("EVENT_CLASS")%></a>]:<a onclick=javascript:parent.window.document.location='<%=sUrl%>' style="cursor:hand"><%=hmTmp.get("EVENT_NAME")%></a>
+				</td>
+			</tr>
+			<%
+		}%>
+		</table>
+		</DIV>
+			</td>
+		</tr>
+	</table>
+<%}%>
+</body>
+<script>
+function onSign(wf_no, card, fpu_no)
+{
+	parent.window.document.location.href ="<%=GlobalNames.WEB_PATH%>/system/card/flow_sign.jsp?WF_NO="+wf_no+"&CARD="+card+"&FPU_NO="+fpu_no;
+}
+</script>

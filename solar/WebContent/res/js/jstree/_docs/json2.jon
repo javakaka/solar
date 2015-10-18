@@ -1,0 +1,10 @@
+[
+	{"data" : "微信公众号分组","state":"open","attr":{"id":"-1","selector_id":"selector_id"},"metadata" : {"id" :"-1"},
+	"children" : 
+		[
+		{"data" : "未分组(57)","state":"open","attr":{"id":"0","selector_id":"selector_id"},"metadata" : {"id" :"0"}},
+		{"data" : "黑名单(0)","state":"open","attr":{"id":"1","selector_id":"selector_id"},"metadata" : {"id" :"1"}},
+		{"data" : "星标组(0)","state":"open","attr":{"id":"2","selector_id":"selector_id"},"metadata" : {"id" :"2"}}
+		]
+	}
+]

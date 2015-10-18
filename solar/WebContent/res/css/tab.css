@@ -1,0 +1,33 @@
+body,ul,li{margin: 0;padding: 0;font: 10px normal "宋体", Arial, Helvetica, sans-serif;list-style: none;}
+a{text-decoration: none;color: #000;font-size: 10px;}
+
+#tabbox{ width:90%; overflow:hidden; margin:0 auto;}
+.tab_conbox{border: 1px solid #999;border-top: none;}
+.tab_con{ display:none;}
+
+.tab_a {text-decoration: none;color: #000;font-size: 14px;}
+.tabs{height: 32px;border-bottom:1px solid #999;border-left: 1px solid #999;width: 100%;}
+.tabs li{height:31px;line-height:31px;float:left;border:1px solid #999;border-left:none;margin-bottom: -1px;background: #e0e0e0;overflow: hidden;position: relative;}
+.tabs li a {display: block;padding: 0 20px;border: 1px solid #fff;outline: none;text-decoration: none;}
+.tabs li a:hover {background: #ccc;text-decoration: none;}	
+.tabs .thistab,.tabs .thistab a:hover{background: #fff;border-bottom: 1px solid #fff;text-decoration: none;}
+
+.tab_con {padding:12px;font-size: 14px; line-height:175%;}
+.table{
+	border: 1px solid #CAF2FF;/*边框颜色*/
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background:#B8D3F1;
+}
+.td_bg {
+	background:#ffffff;
+}
+.bg_tr {
+	font-family: "微软雅黑,Verdana, 新宋体";
+	color:#1E5494;/*标题字体色*/
+	font-size:12px;
+	font-weight:bolder;
+	background:#E4F1FA;/*标题背景色*/
+
+    line-height: 22px;
+}

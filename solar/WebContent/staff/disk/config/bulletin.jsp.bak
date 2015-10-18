@@ -1,0 +1,158 @@
+<%@ page contentType="text/html; charset=GBK"%>
+<%@ include file="/include/Head.jsp"%>
+<table cellSpacing=0 cellPadding=0 border=0 width=100%>
+<tr><td valign=top>
+<div id="icefable1" align="center" width=100%>
+	<zz:Run service="getPushBulletin" dynamic="false">
+		<zz:Arg name="type" value="3"/>
+	</zz:Run>
+	<zz:Error dtype="1"/>
+	<zz:Result var="bulletin" name="bulletin">
+	<table width=100%>
+		<tr class="tr_c">
+			<td align=center><font color="#0000CC"><U><B><zz:Field item="bulletin.TITLE"/></B></U></a><zz:Field item="bulletin.URGENT_LEVEL" replace="[1,■普通][2,<font color='#0066FF'>■重要</font>][3,<font color='#FF0000'>■非常重要</font>]"/></td>
+		</tr>
+		<tr class="tr_c">
+			<td><font color="#9900CC">&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=GlobalNames.WEB_PATH%>/oa/bulletin/bulletins.jsp"><zz:Field item="bulletin.CONTENT"/></a></font></td>
+		</tr>
+	</table>
+	</zz:Result>
+</div>
+<div id="icefable2" style="position:absolute;z-index:1;visibility:hidden"></div>
+<script>
+marqueesHeight=160;
+stopscroll=false;
+icefable1.scrollTop=0;
+
+with(icefable1){
+  //style.width=0;
+  style.height=marqueesHeight;
+  style.overflowX="visible";
+  style.overflowY="hidden";
+  noWrap=true;
+  onmouseover=new Function("stopscroll=true");
+  onmouseout=new Function("stopscroll=false");
+}
+
+preTop=0; currentTop=160; stoptime=0;
+
+function init_srolltext(){
+  icefable2.innerHTML="";
+  icefable2.innerHTML+=icefable1.innerHTML;
+  icefable1.innerHTML=icefable2.innerHTML+icefable2.innerHTML;
+  setInterval("scrollUp()",100);
+}
+function scrollUp(){
+  if(stopscroll==true) return;
+  currentTop+=1;
+	  preTop=icefable1.scrollTop;
+	  icefable1.scrollTop+=1;
+	  if(preTop==icefable1.scrollTop){
+	icefable1.scrollTop=icefable2.offsetHeight-marqueesHeight;
+	icefable1.scrollTop+=1;
+	  }
+}
+init_srolltext();
+</script>	
+</td></tr>
+<tr><td height=5 bgcolor="#CCCCCC"></td></tr>
+<tr>
+	<td>
+		<zz:Table title="今日日程">
+<!--日程安排-->			
+<%
+java.util.Date dNow =new java.util.Date();
+String sYear =FormatUtil.dateToStr(dNow, "yyyy");
+String sMonth =FormatUtil.dateToStr(dNow, "MM");
+String sDay =FormatUtil.dateToStr(dNow, "dd");
+%>
+<zz:Run service="getStaffArrange" dynamic="false">
+	<zz:Arg name="year" value="<%=sYear%>"/>
+	<zz:Arg name="month" value="<%=sMonth%>"/>
+	<zz:Arg name="day" value="<%=sDay%>"/>
+	<zz:Arg name="view_type" value="1"/>
+</zz:Run>
+<zz:Error dtype="1"/>
+<table width=100%>
+<%
+ArrayList alArrange =null;
+if(request.getAttribute(GlobalNames.BEGING_TAG+"ARRANGES") !=null)
+{
+	alArrange =(ArrayList)request.getAttribute(GlobalNames.BEGING_TAG+"ARRANGES");
+	for(int i=0; i<alArrange.size(); i++)
+	{
+		HashMap hmArrange =(HashMap)alArrange.get(i);
+		out.println("<tr class='tr_c'><td><li>"+hmArrange.get("SUBJECT")+"("+hmArrange.get("START_HOUR")+":"+hmArrange.get("START_MINUTE")+"分 开始)</td></tr>");
+	}
+}
+else
+	out.println("<tr class='tr_c'><td>今天没有日程安排</td></tr>");
+%>
+	<tr><td height=10></td></tr>
+</table>
+		</zz:Table>
+	</td>
+</tr>
+<tr>
+	<td>
+		<zz:Table title="阅读资料">
+			<zz:Run service="getReadResource" dynamic="false"/>
+			<zz:Error dtype="1"/>
+			<table width=100% cellSpacing=0 cellPadding=0  border=0>
+				<zz:Result var="resource" name="ReadResource">
+				<tr class="tr_c">
+					<td>◇<a href=# onClick='parent.window.location.href="<%=GlobalNames.WEB_PATH%><zz:Field item="resource.LINK"/>";return false;'><zz:Field item="resource.SUBJECT"/></a></td>
+				</tr>
+				</zz:Result>
+			</table>
+		</zz:Table>
+	</td>
+</tr>
+<tr>
+	<td>
+		<zz:Table title="收藏夹">
+			<zz:Run service="getLinks" dynamic="false"/>
+			<zz:Error dtype="1"/>
+			<table width=100% cellSpacing=0 cellPadding=0  border=0>
+				<%
+				if(request.getAttribute(GlobalNames.BEGING_TAG+"LINK_TYPE") !=null
+					&& request.getAttribute(GlobalNames.BEGING_TAG+"LINKS") !=null)
+				{
+					ArrayList alLinkTypes =(ArrayList)request.getAttribute(GlobalNames.BEGING_TAG+"LINK_TYPE");
+					ArrayList alLinks =(ArrayList)request.getAttribute(GlobalNames.BEGING_TAG+"LINKS");
+					for(int i=0; i<alLinkTypes.size(); i++)
+					{
+						HashMap hmType =(HashMap)alLinkTypes.get(i);
+						int ii=0;
+						String sTypeName =hmType.get("TYPE_NAME").toString();
+						for(int j=0; j<alLinks.size(); j++)
+						{
+							HashMap hmLink =(HashMap)alLinks.get(j);
+							if(hmType.get("TYPE_ID").equals(hmLink.get("TYPE_ID")))
+							{
+								if(ii ==0)
+								{//打印类别信息
+									%>
+									<tr class="tr_c"><td>◇<%=sTypeName%></td></tr>
+									<%
+									ii ++;
+								}
+								String sTitle =hmLink.get("TITLE").toString();
+								String sTitle2 =sTitle;
+								if(sTitle2.length() >8)
+									sTitle2 =sTitle2.substring(0,8)+"...";
+								String sUrls =hmLink.get("URLS").toString();
+								%>
+								<tr><td>&nbsp;>>&nbsp;<a href="<%=sUrls%>" target=_blank><%=sTitle2%></a></td></tr>
+								<%
+							}
+						}
+						
+					}
+				}
+				%>
+			</table>
+		</zz:Table>
+	</td>
+</tr>
+</table>

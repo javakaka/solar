@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:cache="http://www.springframework.org/schema/cache" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+	http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.2.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd"
+	default-lazy-init="true">
+	<context:property-placeholder location="classpath*:/framework.properties" ignore-resource-not-found="true" ignore-unresolvable="true" />
+	<context:component-scan base-package="com.ezcloud.framework,com.solar">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="springJdbcDataSource" />
+	</bean>
+	<bean id="springJdbcDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${framework.jdbc.driver}" />
+		<property name="url" value="${framework.jdbc.url}" />
+		<property name="username" value="${framework.jdbc.username}" />
+		<property name="password" value="${framework.jdbc.password}" />
+	</bean>
+	<bean id="frameworkLocaleResolver" class="com.ezcloud.framework.util.LocaleResolver">
+		<property name="locale" value="${framework.locale}" />
+	</bean>
+	
+	<bean id="jdbcTransactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="springJdbcDataSource" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="jdbcTransactionManager" />
+</beans>

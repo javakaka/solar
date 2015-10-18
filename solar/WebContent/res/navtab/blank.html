@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/drag.js"></script>
+    <title>工具栏组件</title>
+    <script type="text/javascript">
+	function testCallFunction() {
+	  alert('Test success!!');
+	}
+	$(document).ready(function(){
+		$.dragInit({target:'myDrag'});
+	});
+    </script>
+  </head>
+  <body>
+  <div id="myDrag" style="width:200px; height:200px; background-color:red;"></div>
+  </body>
+</html>

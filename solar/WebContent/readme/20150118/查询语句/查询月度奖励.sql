@@ -1,0 +1,1 @@
+select id,left(date,7) as month,price from rent_agent_reward where user_id='1' limit 0,10;

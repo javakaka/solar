@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>历史专场</title>
+  <meta name="description" content="历史专场" />
+  <meta name="keywords" content="历史专场" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="apple-mobile-web-app-capable" content="历史专场">
+  <meta name="apple-mobile-web-app-title" content="历史专场" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" /> 
+  <link rel="Stylesheet" href="common/css/main.css" />
+ </head>
+ <body >
+  <div id="main" class="wrapper">
+	  <div class="main-frame">
+		<div class="auction-list">
+		  <div class="auction-list-item">
+		  <a href="index-auction-item.htm">
+		   <div class="auction-list-item-top">
+		    <div class="auction-list-item-left">
+			 <h4 id="item_title_0">中融商品帝绿王朝专场</h4>
+			 <div class="subtitle"> 
+			  <span id="item_price_0">52</span><span >次出价</span>
+			  <span id="item_people_0">82</span><span >人报名</span>
+			 </div>
+			</div> 
+			<div class="auction-list-item-right">
+				<div class="auction-list-item-right-img close">
+					<span class="close-span">已结束</span>
+				</div>
+			</div>
+		   </div>
+		   
+			<div class="auction-list-item-img"> 
+			 <img  src="common/images/item1.jpg"  />
+			</div>
+		  </a>
+		  </div>
+		  <div class="auction-list-item span-line">
+		  <a href="index-auction-item.htm">
+		   <div class="auction-list-item-top">
+		    <div class="auction-list-item-left">
+			 <h4 id="item_title_0">和田玉专场</h4>
+			 <div class="subtitle"> 
+			  <span id="item_price_0">52</span><span >次出价</span>
+			  <span id="item_people_0">82</span><span >人报名</span>
+			 </div>
+			</div> 
+			<div class="auction-list-item-right">
+				<div class="auction-list-item-right-img close">
+					<span class="close-span">已结束</span>
+				</div>
+			</div>
+		   </div>
+		   
+			<div class="auction-list-item-img"> 
+			 <img  src="common/images/item1.jpg"  />
+			</div>
+		  </a>
+		  </div>
+		  
+		</div>
+	  </div>
+	  <div id="footer_bottom">
+	    <!-- S 底部固定菜单 -->
+	    <div class="flight-footer" style="z-index:100000;">
+	        <ul>
+	            <li id="flightSearch" class="ft1" onclick="location.href = 'index.htm'">进入会场</li>
+	            <li id="flightHelper" class="ft2 current" onclick="location.href = 'index-hot.htm'">热拍单品</li>
+	            <li id="flightSchedule" class="ft3" onclick="location.href = 'index-user-home.htm'">我的</li>
+	        </ul>
+	    </div>
+	    <!-- E 底部固定菜单 -->
+		</div>
+  </div>
+  <script type="text/javascript" src="common/js/jquery.min.js"></script>
+ </body>
+ <script>
+ 	$(function(){
+ 		$("[name='date_item']").click(function(obj){
+ 				$obj =$(this);
+ 				var day_num =$obj.attr("data-num")
+ 				var url =window.location.href;
+ 				url +="?data_num="+day_num;
+ 				window.location.href=url;
+ 			});
+ 	});
+ </script>
+</html>

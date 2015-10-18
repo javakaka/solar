@@ -1,0 +1,119 @@
+body,table,td,p,br
+{
+  font-size:  9pt;
+  color:    #000000;
+/*  line-height:140%;
+  scrollbar-base-color: #AAAAAA;
+  scrollbar-face-color: #999999;
+  scrollbar-track-color: #D4D0C8;
+  scrollbar-arrow-color: #FFFFFF;
+  scrollbar-highlight-color: #000000;
+  scrollbar-3dlight-color: #AAAAAA;
+  scrollbar-shadow-color: #000000;
+  scrollbar-darkshadow-color: #999999;
+*/
+}
+
+/*  show,list 模式下的内容字体  */
+font.clsContentStyle
+{
+  font-size:  9pt;
+  color:    #000000;
+}
+/*  show,list 模式下的标题字体  */
+font.clsTitleStyle
+{
+  font-size:  9pt;
+  color:    #000000;
+  font-weight: bold;
+}
+
+input,radio,select
+{
+  font-size:  9pt;
+  color:    #000000;
+}
+.biaoti
+{
+  font-size:14px;font-weight: bold;
+}
+
+.button1
+{
+  border-right:1px #FFFFFF solid;
+  border-bottom:1px #FFFFFF solid;
+  border-left:1px #666666 solid;
+  border-top:1px #666666 solid;
+  background-color: #F9F9F9;
+  width:50px;
+}
+.button2
+{
+  border-left:1px #FFFFFF solid;
+  border-top:1px #FFFFFF solid;
+  border-right:1px #666666 solid;
+  border-bottom:1px #666666 solid;
+  background-color: #D4D0C8;
+  width:50px;
+}
+
+/*input { font-size: 9pt; border-style: solid ; border-color: #C0C0C0 ;border-width:1px}*/
+/*填写大段文字区*/
+textarea     {font-size:9pt;}
+/*select   {font-size: border-style: solid ; border-color: #C0C0C0 ;border-width:1px }*/
+
+.divLarge{visibility: visible;}
+.divSmall{height:23;overflow:hidden;}
+
+.InfoListDivLarge{display:visible}
+.InfoListDivSmall{display:none;}
+
+/*菜单head*/
+A.menu1:link {COLOR:white;  TEXT-DECORATION: none}
+A.menu1:visited {COLOR:white;TEXT-DECORATION: none}
+A.menu1:hover {COLOR:white; TEXT-DECORATION: underline}
+A:menu1:active {COLOR:white;TEXT-DECORATION:underline}
+
+/*菜单4极*/
+A.menu4:link {  COLOR:#808080;  TEXT-DECORATION: none}
+A.menu4:visited {COLOR:#808080; TEXT-DECORATION: underline}
+A.menu4:hover {COLOR:#808080; TEXT-DECORATION: underline}
+A:menu4:active {COLOR:#808080;TEXT-DECORATION:underline}
+
+A.message:link {COLOR:#00ffff;  TEXT-DECORATION: none}
+A.message:visited {COLOR:#00ffff;TEXT-DECORATION: none}
+A.message:hover {COLOR:yellow; TEXT-DECORATION: underline}
+A:message:active {COLOR:yellow;TEXT-DECORATION:underline}
+
+
+/*默认页面的连接*/
+A:link {COLOR: #09027D; TEXT-DECORATION: none}
+A:visited {COLOR:#09027D; TEXT-DECORATION: none}
+A:active {COLOR:#09027D;TEXT-DECORATION: underline}
+A:hover {COLOR:#09027D; TEXT-DECORATION: underline}
+
+font.clsMouseOver{text-decoration: underline;}
+font.clsMouseOut{text-decoration: none;}
+
+.clsTitleBarBGColor{background-color: #5A92DE}
+.clsWaitingBGColor{background-color: #F3F8FE}
+
+input.clsBtn
+{
+	BORDER-RIGHT: #104a7b 1px solid;
+	BORDER-TOP: #afc4d5 1px solid;
+	BORDER-LEFT: #afc4d5 1px solid;
+	BORDER-BOTTOM: #104a7b 1px solid;
+	FONT-SIZE: 9pt;
+	BACKGROUND: #d6e7ef;
+	CURSOR: hand;
+	COLOR: #000066;
+	FONT-FAMILY: 宋体,MS SONG,SimSun,tahoma,sans-serif;
+	HEIGHT: 19px;
+	TEXT-DECORATION: none
+}
+
+tr.clsListRowSeleted
+{
+	background-color: #99FFFF;
+}

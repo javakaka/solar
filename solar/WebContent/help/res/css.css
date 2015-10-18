@@ -1,0 +1,18 @@
+.font9 {
+	FONT-SIZE: 12px; LINE-HEIGHT: 20px; FONT-FAMILY: "ËÎÌו"
+}
+.font24 {
+	FONT-SIZE: 24px; LINE-HEIGHT: 30px; FONT-FAMILY: "ËÎÌו"
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #333333; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A:link {
+	FONT-SIZE: 9pt; COLOR: #0000ff; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 9pt; COLOR: #0000cc; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 9pt; TEXT-DECORATION: underline
+}

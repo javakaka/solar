@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<style type="text/css">
+p { padding:5px; font:12px tahoma,arial,sans-serif; }
+input { width:15em; padding:4px; border:1px solid #CCC; }
+input:focus { border-color:#426DC9; }
+	</style>
+	<script type="text/javascript">
+var api = frameElement.api, W = api.opener, D = W.document; // api.opener 为载加lhgdialog.min.js文件的页面的window对象
+
+window.onload = function()
+{
+    var val = D.getElementById('txt2').value; // D 为载加lhgdialog.min.js文件的页面的document对象
+	//var val = W.$('#txt2').val(); // 也可使用jQ代码书写方式
+	document.getElementById('openerValue').value = val;
+}
+
+function sendVal()
+{
+    var tObj = D.getElementById('txt2'); // 通过数据共享的方法获取调用页面文本框对象
+	//var tObj = W.$('#txt2')[0]; // 也可使用jQ代码书写方式
+	tObj.value = document.getElementById('sendValue').value;
+	api.close();
+}
+	</script>
+</head>
+
+<body>
+<p><input id="openerValue" type="text"><br/>此文本框的值取自调用页面文本框</p>
+<p><input id="sendValue" value="窗口中文本框中的值" type="text"><button onclick="sendVal()">发送</button>点击发送按钮将文本框的值发送到调用页面的文本框中并关闭窗口</p>
+<style>
+</style>
+</body>
+</html>

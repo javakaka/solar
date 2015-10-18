@@ -1,0 +1,16 @@
+【文件&目录】
+lhgdialog.js 未压缩的lhgDialog弹出窗口组件代码源文件
+lhgdialog.min.js 压缩的jQuery版的lhgDialog弹出窗口组件代码
+lhgcore.lhgdialog.min.js 压缩的独立版本的lhgDialog弹出窗口组件代码
+jquery-1.7.1.min.js jQuery库文件
+[skins] lhgDialog弹出窗口组件的皮肤文件夹，注意此文件夹一定要和组件代码文件放到同一目录下
+[_doc] api文档和其它一些文档文件夹，实际使用中不需要此文件夹
+[_demo] 组件演示示例文件夹，实际使用中不需要此文件夹
+
+【项目发布】
+下载地址：http://code.google.com/p/lhgdialog/downloads/list
+官方论坛：http://bbs.lhgcore.com
+官方微博：http://t.qq.com/lhgcore
+
+【开源协议】
+GNU Lesser General Public License

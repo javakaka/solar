@@ -320,6 +320,59 @@ public class ApiTest {
 		}
 	}
 	
+	//查询电站类型
+	public static void queryStationPage()
+	{
+//		String url ="http://localhost:8080/solar/api/station/list.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/station/list.do";
+		IVO ivo =new IVO();
+		try {
+			ivo.set("page", "1");
+			ivo.set("page_size", "10");
+			String json =  VOConvert.ivoToJson(ivo);
+			System.out.println("\n 加密前 ivo to json ====>>"+json);
+			//加密
+			json =AesUtil.encode(json);
+			System.out.println("\n ivo to json ====>>"+json);
+			String res =NetUtil.getNetResponse(url, json,"UTF-8");
+			System.out.println("\n response json ====>> \n");
+			System.out.print(res);
+			res = AesUtil.decode(res);
+			System.out.println("\n decode response json ===========>>\n"+res);
+		} catch (JException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//查询电站类型
+	public static void queryStationDetail()
+	{
+		String url ="http://localhost:8080/solar/api/station-detail/profile.do";
+//		String url ="http://120.25.61.89:8080/solar-test/api/station-detail/profile.do";
+		IVO ivo =new IVO();
+		try {
+			ivo.set("id", "1");
+			String json =  VOConvert.ivoToJson(ivo);
+			System.out.println("\n 加密前 ivo to json ====>>"+json);
+			//加密
+			json =AesUtil.encode(json);
+			System.out.println("\n ivo to json ====>>"+json);
+			String res =NetUtil.getNetResponse(url, json,"UTF-8");
+			System.out.println("\n response json ====>> \n");
+			System.out.print(res);
+			res = AesUtil.decode(res);
+			System.out.println("\n decode response json ===========>>\n"+res);
+		} catch (JException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String args[])
 	{
 		System.out.println("\n==========request start=============");
@@ -332,7 +385,7 @@ public class ApiTest {
 //		登陆
 //		login();
 //		根据ID查询用户信息
-		queryUserProfile();
+//		queryUserProfile();
 //		根据ID查询用户信息
 //		updateUserProfile();
 //		changePwd();
@@ -343,6 +396,10 @@ public class ApiTest {
 //		queryInfoPage();
 //		查询电站类型
 //		queryStationType();
+//		查询电站列表
+		queryStationPage();
+//		查询电站列表
+		queryStationDetail();
 		System.out.println("\n==========request  end=============");
 	}
 	

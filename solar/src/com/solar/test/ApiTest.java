@@ -84,10 +84,10 @@ public class ApiTest {
 		IVO ivo =new IVO();
 		try {
 			//手机号
-			ivo.set("telephone", "13826531137");
-			ivo.set("username", "kaka");
+			ivo.set("telephone", "13826531139");
+			ivo.set("username", "kaka3");
 			ivo.set("password", "E10ADC3949BA59ABBE56E057F20F883E");
-			ivo.set("email", "510836102@qq.com");
+			ivo.set("email", "510836103@qq.com");
 			ivo.set("company", "谷歌");
 			String json =  VOConvert.ivoToJson(ivo);
 			System.out.println("\n 加密前 ivo to json ====>>"+json);
@@ -114,8 +114,8 @@ public class ApiTest {
 		String url ="http://120.25.61.89:8080/solar-test/api/user/login.do";
 		IVO ivo =new IVO();
 		   try {
-				ivo.set("username", "13826531136");
-			   ivo.set("password", "670B14728AD9902AECBA32E22FA4F6BD");
+				ivo.set("username", "13826531139");
+			   ivo.set("password", "E10ADC3949BA59ABBE56E057F20F883E");
 				String json =  VOConvert.ivoToJson(ivo);
 				System.out.println("\n 加密前 ivo to json ====>>"+json);
 				//加密
@@ -298,8 +298,8 @@ public class ApiTest {
 	//查询电站类型
 	public static void queryStationType()
 	{
-		String url ="http://localhost:8080/solar/api/station-type/list.do";
-//		String url ="http://120.25.61.89:8080/solar-test/api/station-type/list.do";
+//		String url ="http://localhost:8080/solar/api/station-type/list.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/station-type/list.do";
 		IVO ivo =new IVO();
 		try {
 			String json =  VOConvert.ivoToJson(ivo);
@@ -350,8 +350,8 @@ public class ApiTest {
 	//查询电站类型
 	public static void queryStationDetail()
 	{
-		String url ="http://localhost:8080/solar/api/station-detail/profile.do";
-//		String url ="http://120.25.61.89:8080/solar-test/api/station-detail/profile.do";
+//		String url ="http://localhost:8080/solar/api/station-detail/profile.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/station-detail/profile.do";
 		IVO ivo =new IVO();
 		try {
 			ivo.set("id", "1");
@@ -398,8 +398,8 @@ public class ApiTest {
 //		queryStationType();
 //		查询电站列表
 		queryStationPage();
-//		查询电站列表
-		queryStationDetail();
+//		查询电站详情
+//		queryStationDetail();
 		System.out.println("\n==========request  end=============");
 	}
 	

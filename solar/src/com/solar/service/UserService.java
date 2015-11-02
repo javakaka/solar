@@ -110,8 +110,8 @@ public class UserService extends Service{
 	public int insert(Row row)
 	{
 		int num =0;
-		int id =getTableSequence("solar_userinfo", "id", 1);
-		row.put("id", id);
+//		int id =getTableSequence("solar_userinfo", "id", 1);
+//		row.put("id", id);
 		num =insert("solar_userinfo", row);
 		return num;
 	}

@@ -86,20 +86,38 @@ public class StationService extends Service{
 		return page;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Transactional(value="jdbcTransactionManager",readOnly = true)
 	public DataSet list(String type_id,String page,String page_size) 
 	{
+		StringUtils.string2Json("");
 		int iStart =(Integer.parseInt(page)-1)*Integer.parseInt(page_size)+1;
 		DataSet dataSet =new DataSet();
 		String sql=" select top "+page_size+ " * from solar_powerstationinfo  "
-				+ " where (id >=(select MAX(id) from (select top "+iStart+" id from solar_powerstationinfo ";
+				+ " where (id >=(select MAX(id) from (select top "+iStart+" id from solar_powerstationinfo where 1=1 ";
 		if(! StringUtils.isEmptyOrNull(type_id))
 		{
-			sql +=" where type='"+type_id+"' ";
+			sql +=" and type='"+type_id+"' ";
 		}
+		sql +=" and type !='7' ";
 		sql +=" order by id ) as T)) "
 		+ " order by id ";
 		dataSet =queryDataSet(sql);
+		if( dataSet != null )
+		{
+			for(int i=0; i < dataSet.size(); i++ )
+			{
+				Row row =(Row)dataSet.get(i);
+				String remarks =row.getString("REMARKS","");
+				if( ! StringUtils.isEmptyOrNull(remarks) )
+				{
+					remarks =StringUtils.string2Json(remarks);
+					row.put("remarks", remarks);
+					dataSet.set(i, row);
+				}
+			}
+		}
+		
 		return dataSet;
 	}
 	

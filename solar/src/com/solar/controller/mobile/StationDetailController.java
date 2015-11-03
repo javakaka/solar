@@ -81,11 +81,11 @@ public class StationDetailController extends BaseController {
 		{
 			DayKWH =row.getString("DayKWH","0");
 			TotalKWH =row.getString("TotalKWH","0");
-			WS_AT =row.getString("WS-AT","0");
-			WS_PVT =row.getString("WS-PVT","0");
-			WS_IRR =row.getString("WS-IRR","0");
-			WS_WNDS =row.getString("WS-WNDS","0");
-			WS_WNDD =row.getString("WS-WNDD","0");
+			WS_AT =row.getString("WS_AT","0");
+			WS_PVT =row.getString("WS_PVT","0");
+			WS_IRR =row.getString("WS_IRR","0");
+			WS_WNDS =row.getString("WS_WNDS","0");
+			WS_WNDD =row.getString("WS_WNDD","0");
 			IRRHour =row.getString("IRRHour","0");
 			TotalOnus =row.getString("TotalOnus","0");
 			ElectricityPrice =row.getString("ElectricityPrice","0");

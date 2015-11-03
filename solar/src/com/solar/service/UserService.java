@@ -122,6 +122,8 @@ public class UserService extends Service{
 		int num =0;
 		String id =row.getString("id",null);
 		Assert.notNull(id);
+		row.remove("ID");
+		System.out.println("row ------>>"+row);
 		num =update("solar_userinfo", row, " id='"+id+"'");
 		return num;
 	}

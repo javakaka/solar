@@ -243,8 +243,8 @@ public class ApiTest {
 		IVO ivo =new IVO();
 		try {
 			ivo.set("id", "1");
-//			String pic_path ="/Users/TongJianbo/Desktop/demo.jpg";
-			String pic_path ="/Users/TongJianbo/Desktop/price_over.png";
+//			String pic_path ="/Users/TongJianbo/Desktop/default_user_avatar.png";
+			String pic_path ="/Users/TongJianbo/Desktop/default_user_avatar.png";
 			String pictrue = Base64Util.GetImageStr(pic_path);
 			String picture_base64_str =Base64Util.encode(pictrue.getBytes());
 			ivo.set("picture_base64_str", picture_base64_str);
@@ -392,12 +392,12 @@ public class ApiTest {
 //		注销
 //		logout();
 //		上传头像
-//		upload_avatar();
+		upload_avatar();
 //		queryInfoPage();
 //		查询电站类型
 //		queryStationType();
 //		查询电站列表
-		queryStationPage();
+//		queryStationPage();
 //		查询电站详情
 //		queryStationDetail();
 		System.out.println("\n==========request  end=============");

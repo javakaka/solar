@@ -93,15 +93,16 @@ public class StationService extends Service{
 		StringUtils.string2Json("");
 		int iStart =(Integer.parseInt(page)-1)*Integer.parseInt(page_size)+1;
 		DataSet dataSet =new DataSet();
-		String sql=" select top "+page_size+ " * from solar_powerstationinfo  "
-				+ " where (id >=(select MAX(id) from (select top "+iStart+" id from solar_powerstationinfo where 1=1 ";
+		String sql="select top 10 * "
+		+" from  "
+		+" ( "
+		+" select row_number() over(order by id) as rownumber,* from solar_powerstationinfo where type !='7' ";
 		if(! StringUtils.isEmptyOrNull(type_id))
 		{
 			sql +=" and type='"+type_id+"' ";
 		}
-		sql +=" and type !='7' ";
-		sql +=" order by id ) as T)) "
-		+ " order by id ";
+		sql +=" ) temp "
+		+" where rownumber >  " +iStart;
 		dataSet =queryDataSet(sql);
 		if( dataSet != null )
 		{

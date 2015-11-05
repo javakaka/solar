@@ -329,6 +329,7 @@ public class ApiTest {
 		try {
 			ivo.set("page", "1");
 			ivo.set("page_size", "10");
+			ivo.set("type_id", "3");
 			String json =  VOConvert.ivoToJson(ivo);
 			System.out.println("\n 加密前 ivo to json ====>>"+json);
 			//加密
@@ -392,12 +393,12 @@ public class ApiTest {
 //		注销
 //		logout();
 //		上传头像
-		upload_avatar();
+//		upload_avatar();
 //		queryInfoPage();
 //		查询电站类型
 //		queryStationType();
 //		查询电站列表
-//		queryStationPage();
+		queryStationPage();
 //		查询电站详情
 //		queryStationDetail();
 		System.out.println("\n==========request  end=============");

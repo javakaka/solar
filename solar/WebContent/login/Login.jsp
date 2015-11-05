@@ -90,7 +90,7 @@ else
 						</td>
 					</tr>
 				</table>
-				<div class="powered">COPYRIGHT © 2015-2020 烽火连三月营销策划有限公司 ALL RIGHTS RESERVED.</div>
+				<div class="powered">COPYRIGHT © 2015-2020 蓝波集团 ALL RIGHTS RESERVED.</div>
 				<div class="link">
 					<a href="#"></a>
 					<a href="#"></a>

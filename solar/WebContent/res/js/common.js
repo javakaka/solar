@@ -1,5 +1,5 @@
 var framework = {
-	base: "/paimai",
+	base: "/solar",
 	locale: "zh_CN"
 };
 

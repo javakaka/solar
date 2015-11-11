@@ -4,11 +4,12 @@ package com.solar.service;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
+import com.ezcloud.framework.common.Setting;
 import com.ezcloud.framework.page.jdbc.Page;
 import com.ezcloud.framework.page.jdbc.Pageable;
 import com.ezcloud.framework.service.Service;
+import com.ezcloud.framework.util.SettingUtils;
 import com.ezcloud.framework.util.StringUtils;
 import com.ezcloud.framework.vo.DataSet;
 import com.ezcloud.framework.vo.Row;
@@ -19,10 +20,10 @@ import com.ezcloud.framework.vo.Row;
  * @version 创建时间：2014-12-26 下午3:14:51  
  */
 
-@Component("solarStationService")
-public class StationService extends Service{
+@Component("solarNewsService")
+public class NewsService extends Service{
 
-	public StationService() {
+	public NewsService() {
 		
 	}
 	
@@ -30,19 +31,18 @@ public class StationService extends Service{
 	public Row find(String id)
 	{
 		Row row =null;
-		String sSql =" select * from solar_powerstationinfo where id='"+id+"' ";
+		String sSql =" select * from solar_info where id='"+id+"' ";
 		row =queryRow(sSql);
 		return row;
 	}
-	
 	
 	@Transactional(value="jdbcTransactionManager",propagation=Propagation.REQUIRED)
 	public int insert(Row row)
 	{
 		int num =0;
-		int id =getTableSequence("solar_powerstationinfo", "id", 1);
-		row.put("id", id);
-		num =insert("solar_powerstationinfo", row);
+//		int id =getTableSequence("solar_info", "id", 1);
+//		row.put("id", id);
+		num =insert("solar_info", row);
 		return num;
 	}
 	
@@ -51,8 +51,8 @@ public class StationService extends Service{
 	{
 		int num =0;
 		String id =row.getString("id",null);
-		Assert.notNull(id);
-		num =update("solar_powerstationinfo", row, " id='"+id+"'");
+		row.remove("ID");
+		num =update("solar_info", row, " id='"+id+"'");
 		return num;
 	}
 	
@@ -66,12 +66,12 @@ public class StationService extends Service{
 	public Page queryPage() {
 		Page page = null;
 		Pageable pageable = (Pageable) row.get("pageable");
-		sql = "select * from solar_powerstationinfo where 1=1 ";
+		sql = "select top "+pageable.getPageSize()+" * from ( select row_number() over(order by id) as rownumber,* from solar_info where 1=1 ";
 		String restrictions = addRestrictions(pageable);
 		String orders = addOrders(pageable);
 		sql += restrictions;
 		sql += orders;
-		String countSql = "select count(*) from solar_powerstationinfo where 1=1 ";
+		String countSql = "select count(*) from solar_info where 1=1 ";
 		countSql += restrictions;
 		countSql += orders;
 		long total = count(countSql);
@@ -80,7 +80,7 @@ public class StationService extends Service{
 			pageable.setPageNumber(totalPages);
 		}
 		int startPos = (pageable.getPageNumber() - 1) * pageable.getPageSize();
-		sql += " limit " + startPos + " , " + pageable.getPageSize();
+		sql +=" ) temp  where rownumber > "+startPos +" ";
 		dataSet = queryDataSet(sql);
 		page = new Page(dataSet, total, pageable);
 		return page;
@@ -88,37 +88,46 @@ public class StationService extends Service{
 	
 	@SuppressWarnings("unchecked")
 	@Transactional(value="jdbcTransactionManager",readOnly = true)
-	public DataSet list(String type_id,String page,String page_size) 
+	public DataSet list(String page,String page_size) 
 	{
-		StringUtils.string2Json("");
 		int iStart =(Integer.parseInt(page)-1)*Integer.parseInt(page_size);
 		DataSet dataSet =new DataSet();
 		String sql="select top "+page_size+" * "
 		+" from  "
 		+" ( "
-		+" select row_number() over(order by id) as rownumber,* from solar_powerstationinfo where type !='7' ";
-		if(! StringUtils.isEmptyOrNull(type_id))
-		{
-			sql +=" and type='"+type_id+"' ";
-		}
+		+" select row_number() over(order by id) as rownumber,* from solar_info where 1=1 ";
 		sql +=" ) temp "
 		+" where rownumber >  " +iStart;
+		System.out.println("sql----->>"+sql);
 		dataSet =queryDataSet(sql);
+		Setting setting =SettingUtils.get();
+		String site_url =setting.getSiteUrl();
+		String siteDomain ="";
+		int iPos =site_url.lastIndexOf("/");
+		if(iPos !=-1)
+		{
+			siteDomain =site_url.substring(0,iPos);
+		}
 		if( dataSet != null )
 		{
 			for(int i=0; i < dataSet.size(); i++ )
 			{
 				Row row =(Row)dataSet.get(i);
-				String remarks =row.getString("REMARKS","");
-				if( ! StringUtils.isEmptyOrNull(remarks) )
+				String detail =row.getString("detail","");
+				String url =row.getString("url","");
+				if( ! StringUtils.isEmptyOrNull(detail) )
 				{
-					remarks =StringUtils.string2Json(remarks);
-					row.put("remarks", remarks);
+					detail =StringUtils.string2Json(detail);
+					row.put("detail", detail);
 					dataSet.set(i, row);
+				}
+				if( ! StringUtils.isEmptyOrNull(url) )
+				{
+					url=siteDomain+url;
+					row.put("url",url);
 				}
 			}
 		}
-		
 		return dataSet;
 	}
 	
@@ -139,7 +148,7 @@ public class StationService extends Service{
 				}
 				id += "'" + String.valueOf(ids[i]) + "'";
 			}
-			sql = "delete from solar_powerstationinfo where id in(" + id + ")";
+			sql = "delete from solar_info where id in(" + id + ")";
 			update(sql);
 		}
 	}

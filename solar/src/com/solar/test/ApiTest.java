@@ -374,6 +374,109 @@ public class ApiTest {
 		}
 	}
 	
+	//查询电站类型
+	public static void queryContactUs()
+	{
+//		String url ="http://localhost:8080/solar/api/company-info/contact-us.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/company-info/contact-us.do";
+		IVO ivo =new IVO();
+		try {
+			String json =  VOConvert.ivoToJson(ivo);
+			System.out.println("\n 加密前 ivo to json ====>>"+json);
+			//加密
+			json =AesUtil.encode(json);
+			System.out.println("\n ivo to json ====>>"+json);
+			String res =NetUtil.getNetResponse(url, json,"UTF-8");
+			System.out.println("\n response json ====>> \n");
+			System.out.print(res);
+			res = AesUtil.decode(res);
+			System.out.println("\n decode response json ===========>>\n"+res);
+		} catch (JException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//查询电站类型
+	public static void queryComponyDesc()
+	{
+//		String url ="http://localhost:8080/solar/api/company-info/desc.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/company-info/desc.do";
+		IVO ivo =new IVO();
+		try {
+			String json =  VOConvert.ivoToJson(ivo);
+			System.out.println("\n 加密前 ivo to json ====>>"+json);
+			//加密
+			json =AesUtil.encode(json);
+			System.out.println("\n ivo to json ====>>"+json);
+			String res =NetUtil.getNetResponse(url, json,"UTF-8");
+			System.out.println("\n response json ====>> \n");
+			System.out.print(res);
+			res = AesUtil.decode(res);
+			System.out.println("\n decode response json ===========>>\n"+res);
+		} catch (JException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//查询电站类型
+	public static void queryInfo()
+	{
+//		String url ="http://localhost:8080/solar/api/news/list.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/news/list.do";
+		IVO ivo =new IVO();
+		try {
+			ivo.set("page", "1");
+			ivo.set("page_size", "10");
+			String json =  VOConvert.ivoToJson(ivo);
+			System.out.println("\n 加密前 ivo to json ====>>"+json);
+			//加密
+			json =AesUtil.encode(json);
+			System.out.println("\n ivo to json ====>>"+json);
+			String res =NetUtil.getNetResponse(url, json,"UTF-8");
+			System.out.println("\n response json ====>> \n");
+			System.out.print(res);
+			res = AesUtil.decode(res);
+			System.out.println("\n decode response json ===========>>\n"+res);
+		} catch (JException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//查询电站类型
+	public static void queryRecruit()
+	{
+//		String url ="http://localhost:8080/solar/api/recruitment/list.do";
+		String url ="http://120.25.61.89:8080/solar-test/api/recruitment/list.do";
+		IVO ivo =new IVO();
+		try {
+			ivo.set("page", "1");
+			ivo.set("page_size", "10");
+			String json =  VOConvert.ivoToJson(ivo);
+			System.out.println("\n 加密前 ivo to json ====>>"+json);
+			//加密
+			json =AesUtil.encode(json);
+			System.out.println("\n ivo to json ====>>"+json);
+			String res =NetUtil.getNetResponse(url, json,"UTF-8");
+			System.out.println("\n response json ====>> \n");
+			System.out.print(res);
+			res = AesUtil.decode(res);
+			System.out.println("\n decode response json ===========>>\n"+res);
+		} catch (JException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String args[])
 	{
 		System.out.println("\n==========request start=============");
@@ -401,6 +504,14 @@ public class ApiTest {
 		queryStationPage();
 //		查询电站详情
 //		queryStationDetail();
+//		查询联系我们
+//		queryContactUs();
+//		查询集团介绍
+//		queryComponyDesc();
+//		查询情报列表
+//		queryInfo();
+//		查询情报列表
+//		queryRecruit();
 		System.out.println("\n==========request  end=============");
 	}
 	

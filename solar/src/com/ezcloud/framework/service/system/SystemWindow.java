@@ -25,7 +25,7 @@ public class SystemWindow extends Service {
 	public Page queryPage() {
 		Page page = null;
 		Pageable pageable = (Pageable) row.get("pageable");
-		sql = "select * from sm_window where 1=1 ";
+		sql = "select top "+pageable.getPageSize()+" * from ( select row_number() over(order by win_id) as rownumber,*  from sm_window where 1=1 ";
 		String restrictions = addRestrictions(pageable);
 		String orders = addOrders(pageable);
 		sql += restrictions;
@@ -39,7 +39,7 @@ public class SystemWindow extends Service {
 			pageable.setPageNumber(totalPages);
 		}
 		int startPos = (pageable.getPageNumber() - 1) * pageable.getPageSize();
-		sql += " limit " + startPos + " , " + pageable.getPageSize();
+		sql += " ) temp  where rownumber > "+startPos+" ";
 		dataSet = queryDataSet(sql);
 		page = new Page(dataSet, total, pageable);
 		return page;
